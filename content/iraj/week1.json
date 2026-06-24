@@ -1,0 +1,507 @@
+[
+  {
+    "id": "iraj-week1-day1",
+    "childId": "iraj",
+    "gradeLevel": 5,
+    "weekId": "week1",
+    "dayNumber": 1,
+    "title": "Mission Briefing: The Data Detective Begins",
+    "theme": "Data Detective + Force Explorer",
+    "estimatedMinutes": 45,
+    "sections": [
+      { "id": "lesson", "label": "Lesson" },
+      { "id": "exercises", "label": "Exercises" },
+      { "id": "writing", "label": "Writing Mission" },
+      { "id": "enrichment", "label": "Force Lab" },
+      { "id": "vocabulary", "label": "Vocabulary" }
+    ],
+    "lesson": [
+      {
+        "heading": "Agent Briefing: Mean, Median, Mode, and Range",
+        "body": "A Data Detective looks at a list of numbers and finds the clues hiding inside it. The MEAN is the average: add every number together, then divide by how many numbers there are. The MEDIAN is the middle number once the list is sorted from smallest to largest (if there are two middle numbers, average those two). The MODE is the number that shows up most often -- a list can have one mode, more than one, or no mode at all. The RANGE is the distance between the biggest and smallest number: largest minus smallest."
+      },
+      {
+        "heading": "Worked Example",
+        "body": "Data set: 4, 8, 6, 8, 2. Sorted: 2, 4, 6, 8, 8. Mean = (4+8+6+8+2) / 5 = 28 / 5 = 5.6. Median = 6 (the middle number once sorted). Mode = 8 (it appears twice, more than any other number). Range = 8 - 2 = 6."
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "Find the mean of: 10, 12, 14, 16, 18." },
+      { "id": "ex2", "prompt": "Find the median of: 7, 2, 9, 4, 11." },
+      { "id": "ex3", "prompt": "Find the mode of: 3, 5, 5, 7, 9, 5, 2." },
+      { "id": "ex4", "prompt": "Find the range of: 21, 8, 15, 30, 4." },
+      { "id": "ex5", "prompt": "A team scored these points in 5 games: 14, 20, 14, 18, 14. What is the mean, median, and mode?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Why is swimming a good sport? Write a paragraph with a clear topic sentence, at least two supporting reasons, and a closing sentence.",
+      "minWords": 60
+    },
+    "scienceOrSocialStudies": {
+      "heading": "Force Explorer Lab: What Is a Force?",
+      "body": "A force is a push or a pull. Forces can make something start moving, stop moving, speed up, slow down, or change direction. Motion is when an object changes position over time. Friction is a force that happens when two surfaces rub together, and it usually slows things down. Gravity is the force that pulls objects toward Earth. Energy is what allows objects to do work or cause change -- a moving object has energy because of its motion.",
+      "activity": "Push a small toy car across a carpet, then across a smooth floor. Which surface has more friction? Record what you notice about how far the car travels on each surface."
+    },
+    "vocabulary": [
+      { "word": "force", "definition": "A push or a pull on an object." },
+      { "word": "motion", "definition": "A change in an object's position over time." },
+      { "word": "friction", "definition": "A force created when two surfaces rub against each other, often slowing motion." },
+      { "word": "gravity", "definition": "The force that pulls objects toward Earth." },
+      { "word": "energy", "definition": "The ability to do work or cause change." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "What do you call the average of a list of numbers?",
+        "options": ["Median", "Mode", "Mean", "Range"],
+        "correctAnswer": "Mean",
+        "explanation": "The mean is found by adding all the numbers and dividing by how many there are."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What is the median of 3, 9, 1, 7, 5?",
+        "options": ["1", "5", "7", "9"],
+        "correctAnswer": "5",
+        "explanation": "Sorted, the list is 1, 3, 5, 7, 9. The middle number is 5."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "The mode is always the largest number in a data set.",
+        "correctAnswer": "False",
+        "explanation": "The mode is the number that appears most often, not necessarily the largest."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Friction is a force that happens when two surfaces rub together.",
+        "correctAnswer": "True",
+        "explanation": "Friction occurs between surfaces in contact and usually slows motion down."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "What force pulls objects toward the Earth?",
+        "correctAnswer": "Gravity",
+        "explanation": "Gravity is the force that pulls objects toward the Earth."
+      },
+      {
+        "id": "q6",
+        "type": "short-answer",
+        "question": "Find the range of: 12, 45, 3, 27.",
+        "correctAnswer": "42",
+        "explanation": "Range = largest - smallest = 45 - 3 = 42."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Reviewed mean, median, mode, and range together" },
+      { "id": "pc2", "label": "Checked the 5 math exercises for accuracy" },
+      { "id": "pc3", "label": "Listened to the swimming paragraph read aloud" },
+      { "id": "pc4", "label": "Talked about one Force Lab vocabulary word in conversation" }
+    ]
+  },
+  {
+    "id": "iraj-week1-day2",
+    "childId": "iraj",
+    "gradeLevel": 5,
+    "weekId": "week1",
+    "dayNumber": 2,
+    "title": "Mission Briefing: Sorting Squad and Good Citizens",
+    "theme": "Data Detective + Force Explorer",
+    "estimatedMinutes": 45,
+    "sections": [
+      { "id": "lesson", "label": "Lesson" },
+      { "id": "exercises", "label": "Exercises" },
+      { "id": "writing", "label": "Writing Mission" },
+      { "id": "enrichment", "label": "Citizenship Briefing" },
+      { "id": "vocabulary", "label": "Vocabulary" }
+    ],
+    "lesson": [
+      {
+        "heading": "Sorting Numbers and Finding the Median",
+        "body": "Before you can find a median, you must sort the numbers from smallest to largest. If the list has an odd number of values, the median is the single middle number. If the list has an even number of values, find the two middle numbers and average them (add them together and divide by 2)."
+      },
+      {
+        "heading": "Worked Example",
+        "body": "Data set: 9, 2, 6, 13, 4, 8. Sorted: 2, 4, 6, 8, 9, 13. There are 6 numbers (even), so the two middle numbers are 6 and 8. Median = (6 + 8) / 2 = 7."
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "Sort this list from smallest to largest: 17, 3, 25, 9, 14." },
+      { "id": "ex2", "prompt": "Find the median of: 6, 19, 2, 11, 8." },
+      { "id": "ex3", "prompt": "Find the median of: 30, 12, 18, 24 (an even number of values)." },
+      { "id": "ex4", "prompt": "A set has these temperatures: 70, 68, 75, 68, 72. Sort the list and find the median." },
+      { "id": "ex5", "prompt": "Explain in one sentence why you must sort a list before finding the median." }
+    ],
+    "writingPrompt": {
+      "prompt": "Why should students follow rules in school? Write a paragraph with a topic sentence, at least two reasons, and a closing sentence.",
+      "minWords": 60
+    },
+    "scienceOrSocialStudies": {
+      "heading": "Citizenship Briefing: Responsible Citizens",
+      "body": "A responsible citizen follows rules, respects other people, helps their community, and takes care of shared spaces. Rules exist to keep people safe and to make sure everyone is treated fairly. When people break rules, it can be unsafe or unfair for others. Being responsible also means owning up to mistakes and trying to do better."
+    },
+    "vocabulary": [
+      { "word": "citizen", "definition": "A member of a community who has responsibilities and rights." },
+      { "word": "responsible", "definition": "Reliable, accountable, and able to be trusted to do the right thing." },
+      { "word": "community", "definition": "A group of people living in the same area or sharing common interests." },
+      { "word": "respect", "definition": "Treating people and things with consideration and care." },
+      { "word": "fairness", "definition": "Treating everyone justly and equally." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "What must you do before finding a median?",
+        "options": ["Multiply the numbers", "Sort the numbers", "Add the numbers", "Find the mode"],
+        "correctAnswer": "Sort the numbers",
+        "explanation": "You always sort the list from smallest to largest before locating the middle value."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What is the median of 10, 20, 30, 40 (sorted, even count)?",
+        "options": ["20", "25", "30", "35"],
+        "correctAnswer": "25",
+        "explanation": "The two middle numbers are 20 and 30. (20 + 30) / 2 = 25."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "A responsible citizen only worries about their own needs.",
+        "correctAnswer": "False",
+        "explanation": "A responsible citizen also considers their community and the people around them."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Rules at school exist to help keep everyone safe and treated fairly.",
+        "correctAnswer": "True",
+        "explanation": "School rules are designed to protect students and keep things fair."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "What is the median of 5, 1, 9?",
+        "correctAnswer": "5",
+        "explanation": "Sorted: 1, 5, 9. The middle number is 5."
+      },
+      {
+        "id": "q6",
+        "type": "short-answer",
+        "question": "Name one way to be a responsible citizen.",
+        "correctAnswer": "Follow rules / help the community / respect others",
+        "explanation": "Any reasonable example of responsible behavior counts."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Practiced sorting numbers before finding the median" },
+      { "id": "pc2", "label": "Checked the median exercises for accuracy" },
+      { "id": "pc3", "label": "Discussed one rule at home or school and why it matters" },
+      { "id": "pc4", "label": "Read the school-rules paragraph together" }
+    ]
+  },
+  {
+    "id": "iraj-week1-day3",
+    "childId": "iraj",
+    "gradeLevel": 5,
+    "weekId": "week1",
+    "dayNumber": 3,
+    "title": "Mission Briefing: Average Agent and the Friction Field Test",
+    "theme": "Data Detective + Force Explorer",
+    "estimatedMinutes": 45,
+    "sections": [
+      { "id": "lesson", "label": "Lesson" },
+      { "id": "exercises", "label": "Exercises" },
+      { "id": "writing", "label": "Writing Mission" },
+      { "id": "enrichment", "label": "Friction Field Test" },
+      { "id": "vocabulary", "label": "Vocabulary" }
+    ],
+    "lesson": [
+      {
+        "heading": "Mean (Average) Deep Dive",
+        "body": "The mean tells you what value would be 'typical' if every item in the list were equal. To find it: add all the values, then divide by the number of values. The mean is useful for comparing groups, like average scores or average temperatures, but a few very high or very low numbers can pull the mean away from what feels 'typical.'"
+      },
+      {
+        "heading": "Worked Example",
+        "body": "Five quiz scores: 80, 85, 90, 95, 100. Sum = 450. Mean = 450 / 5 = 90. Now imagine one score was a 20 instead of 100: 80, 85, 90, 95, 20. Sum = 370. Mean = 370 / 5 = 74. One low score pulled the mean down a lot."
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "Find the mean of: 12, 15, 18, 21, 24." },
+      { "id": "ex2", "prompt": "Find the mean of: 100, 90, 95." },
+      { "id": "ex3", "prompt": "Five books have these page counts: 200, 210, 190, 220, 180. What is the mean?" },
+      { "id": "ex4", "prompt": "If the mean of 4 numbers is 10, what is the sum of those 4 numbers?" },
+      { "id": "ex5", "prompt": "Explain in your own words why one very large number can change the mean a lot." }
+    ],
+    "writingPrompt": {
+      "prompt": "What makes a good teammate? Write a paragraph with a topic sentence, at least two qualities or examples, and a closing sentence.",
+      "minWords": 60
+    },
+    "scienceOrSocialStudies": {
+      "heading": "Friction Field Test",
+      "body": "Friction depends on the surfaces involved -- rougher surfaces usually create more friction than smooth ones. More friction means an object slows down faster and travels a shorter distance.",
+      "activity": "Roll a ball or toy car down a small ramp onto three different surfaces: carpet, wood/tile floor, and a towel. Measure or estimate how far it travels on each one. Which surface had the most friction? Which had the least?"
+    },
+    "vocabulary": [
+      { "word": "surface", "definition": "The outer layer or top of something that another object can touch or move across." },
+      { "word": "distance", "definition": "How far apart two points or objects are." },
+      { "word": "speed", "definition": "How fast something is moving." },
+      { "word": "teammate", "definition": "A person who works with you as part of the same team." },
+      { "word": "average", "definition": "Another word for the mean; a typical value found by adding and dividing." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "How do you find the mean of a list of numbers?",
+        "options": ["Find the middle number", "Find the most common number", "Add them and divide by how many there are", "Subtract the smallest from the largest"],
+        "correctAnswer": "Add them and divide by how many there are",
+        "explanation": "That sum-then-divide process is the definition of the mean."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "Which surface would most likely create the LEAST friction for a rolling ball?",
+        "options": ["Carpet", "Smooth tile floor", "A thick towel", "Grass"],
+        "correctAnswer": "Smooth tile floor",
+        "explanation": "Smooth, hard surfaces generally create less friction than soft or rough ones."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "One unusually large or small number can change the mean a lot.",
+        "correctAnswer": "True",
+        "explanation": "Because the mean uses every value in its calculation, extreme values pull it up or down."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "A good teammate only cares about their own performance.",
+        "correctAnswer": "False",
+        "explanation": "Good teammates support and encourage others, not just themselves."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "Find the mean of: 6, 6, 6, 6.",
+        "correctAnswer": "6",
+        "explanation": "When every number is the same, the mean equals that number."
+      },
+      {
+        "id": "q6",
+        "type": "short-answer",
+        "question": "Name one quality of a good teammate.",
+        "correctAnswer": "Encouraging / helpful / honest / hardworking",
+        "explanation": "Any reasonable positive teammate quality counts."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Reviewed how to calculate the mean step by step" },
+      { "id": "pc2", "label": "Checked the mean exercises for accuracy" },
+      { "id": "pc3", "label": "Completed the friction field test together" },
+      { "id": "pc4", "label": "Talked about a real teammate experience (sports, school, or family)" }
+    ]
+  },
+  {
+    "id": "iraj-week1-day4",
+    "childId": "iraj",
+    "gradeLevel": 5,
+    "weekId": "week1",
+    "dayNumber": 4,
+    "title": "Mission Briefing: Variable Vault and Sentence Repair",
+    "theme": "Data Detective + Force Explorer",
+    "estimatedMinutes": 45,
+    "sections": [
+      { "id": "lesson", "label": "Lesson" },
+      { "id": "exercises", "label": "Exercises" },
+      { "id": "writing", "label": "Sentence Repair" },
+      { "id": "enrichment", "label": "Experiment Log" },
+      { "id": "vocabulary", "label": "Vocabulary" }
+    ],
+    "lesson": [
+      {
+        "heading": "Variables and Simple Equations",
+        "body": "A variable is a letter that stands in for an unknown number, like x or n. A simple equation shows that two amounts are equal, such as x + 5 = 12. To solve, figure out what number the variable must be so both sides match. In this example, x = 7, because 7 + 5 = 12."
+      },
+      {
+        "heading": "Worked Example",
+        "body": "Solve: n - 4 = 9. Think: what number minus 4 equals 9? Add 4 to both sides: n = 9 + 4 = 13. Check: 13 - 4 = 9. Correct!"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "Solve for x: x + 6 = 14." },
+      { "id": "ex2", "prompt": "Solve for n: n - 9 = 3." },
+      { "id": "ex3", "prompt": "Solve for y: 3y = 21." },
+      { "id": "ex4", "prompt": "Solve for x: x / 4 = 5." },
+      { "id": "ex5", "prompt": "Write your own equation using a variable, then solve it." }
+    ],
+    "writingPrompt": {
+      "prompt": "Fix these sentences so they have correct capitalization and punctuation, then rewrite each one correctly: (1) my favorite season is summer because i can swim every day (2) the dog ran across the yard and it barked loudly (3) yesterday we went to the store and bought apples bananas and bread.",
+      "minWords": 20
+    },
+    "scienceOrSocialStudies": {
+      "heading": "Experiment Log: Thinking Like a Scientist",
+      "body": "Scientists follow a process to learn about the world. They form a question, make a prediction, run an experiment, observe what happens, gather evidence, and draw a conclusion. An observation is something you notice with your senses. Evidence is the information you collect during an experiment. A conclusion is what you decide based on the evidence.",
+      "activity": "Predict what will happen if you drop a ball from two different heights. Test it, observe the results, and write one sentence of evidence and one sentence describing your conclusion."
+    },
+    "vocabulary": [
+      { "word": "variable", "definition": "A letter that stands in for an unknown number in an equation." },
+      { "word": "experiment", "definition": "A test done to find out what happens under certain conditions." },
+      { "word": "observe", "definition": "To watch closely and notice details." },
+      { "word": "evidence", "definition": "Information gathered that supports or tests an idea." },
+      { "word": "conclusion", "definition": "A decision or judgment made based on evidence." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "In the equation x + 5 = 12, what does x equal?",
+        "options": ["5", "7", "12", "17"],
+        "correctAnswer": "7",
+        "explanation": "7 + 5 = 12, so x = 7."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What is a variable?",
+        "options": ["A type of force", "A letter standing in for an unknown number", "The middle of a data set", "A science tool"],
+        "correctAnswer": "A letter standing in for an unknown number",
+        "explanation": "Variables like x or n represent unknown values in equations."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "A conclusion should be based on the evidence you gathered.",
+        "correctAnswer": "True",
+        "explanation": "Good conclusions are supported by the evidence collected during an experiment."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Sentences should always start with a capital letter.",
+        "correctAnswer": "True",
+        "explanation": "The first word of every sentence is capitalized."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "Solve for y: y + 10 = 25.",
+        "correctAnswer": "15",
+        "explanation": "25 - 10 = 15, so y = 15."
+      },
+      {
+        "id": "q6",
+        "type": "short-answer",
+        "question": "What word means 'to watch closely and notice details'?",
+        "correctAnswer": "Observe",
+        "explanation": "Observing is closely watching and noticing what happens."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Reviewed solving simple one-step equations" },
+      { "id": "pc2", "label": "Checked the equation exercises for accuracy" },
+      { "id": "pc3", "label": "Reviewed corrected sentences for capitalization and punctuation" },
+      { "id": "pc4", "label": "Completed the ball-drop experiment log together" }
+    ]
+  },
+  {
+    "id": "iraj-week1-day5",
+    "childId": "iraj",
+    "gradeLevel": 5,
+    "weekId": "week1",
+    "dayNumber": 5,
+    "title": "Boss Battle: Weekly Review Mission",
+    "theme": "Data Detective + Force Explorer",
+    "estimatedMinutes": 50,
+    "sections": [
+      { "id": "lesson", "label": "Review Briefing" },
+      { "id": "exercises", "label": "Mixed Review" },
+      { "id": "writing", "label": "Reflection" },
+      { "id": "vocabulary", "label": "Vocabulary Roundup" }
+    ],
+    "lesson": [
+      {
+        "heading": "Boss Battle Briefing",
+        "body": "This is the weekly review mission. You'll be tested on everything from this week: mean, median, mode, range, variables and simple equations, plus the science words force and friction, and the citizenship word citizen. A true Data Detective and Force Explorer can handle a mix of everything!"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "Find the mean, median, mode, and range of: 5, 8, 5, 12, 5, 10." },
+      { "id": "ex2", "prompt": "Solve for x: x + 9 = 20." },
+      { "id": "ex3", "prompt": "Solve for n: 4n = 28." },
+      { "id": "ex4", "prompt": "Sort this list and find the median: 18, 4, 25, 11, 7." },
+      { "id": "ex5", "prompt": "Explain the difference between mean and median in your own words." }
+    ],
+    "writingPrompt": {
+      "prompt": "What did I learn this week? Write a paragraph reflecting on one math idea, one science idea, and one thing you found challenging.",
+      "minWords": 60
+    },
+    "vocabulary": [
+      { "word": "force", "definition": "A push or a pull on an object (review from Day 1)." },
+      { "word": "friction", "definition": "A force created when two surfaces rub against each other (review from Day 1 and 3)." },
+      { "word": "citizen", "definition": "A member of a community who has responsibilities and rights (review from Day 2)." },
+      { "word": "variable", "definition": "A letter standing in for an unknown number (review from Day 4)." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "Which measure is found by adding all values and dividing by the count?",
+        "options": ["Median", "Mode", "Mean", "Range"],
+        "correctAnswer": "Mean",
+        "explanation": "Mean = sum of values divided by the number of values."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "Solve for x: x - 6 = 14.",
+        "options": ["8", "14", "20", "6"],
+        "correctAnswer": "20",
+        "explanation": "14 + 6 = 20, so x = 20."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "Range is found by subtracting the smallest value from the largest value.",
+        "correctAnswer": "True",
+        "explanation": "Range = largest - smallest."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Friction always speeds objects up.",
+        "correctAnswer": "False",
+        "explanation": "Friction usually slows objects down, not speeds them up."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "What is the mode of: 2, 4, 4, 6, 8, 4?",
+        "correctAnswer": "4",
+        "explanation": "4 appears three times, more than any other number."
+      },
+      {
+        "id": "q6",
+        "type": "short-answer",
+        "question": "Name one responsibility of a good citizen.",
+        "correctAnswer": "Follow rules / help the community / be respectful",
+        "explanation": "Any reasonable citizenship example counts."
+      },
+      {
+        "id": "q7",
+        "type": "short-answer",
+        "question": "Solve for y: y / 5 = 6.",
+        "correctAnswer": "30",
+        "explanation": "5 x 6 = 30, so y = 30."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Reviewed all 4 math measures: mean, median, mode, range" },
+      { "id": "pc2", "label": "Checked the mixed review exercises for accuracy" },
+      { "id": "pc3", "label": "Read the weekly reflection paragraph together" },
+      { "id": "pc4", "label": "Celebrated finishing Week 1!" }
+    ]
+  }
+]
