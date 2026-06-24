@@ -1,0 +1,466 @@
+[
+  {
+    "id": "aveer-week1-day1",
+    "childId": "aveer",
+    "gradeLevel": 2,
+    "weekId": "week1",
+    "dayNumber": 1,
+    "title": "Adventure Begins: Short Vowel Trail",
+    "theme": "Reading Ranger + Math Explorer",
+    "estimatedMinutes": 30,
+    "sections": [
+      { "id": "lesson", "label": "Reading" },
+      { "id": "exercises", "label": "Math" },
+      { "id": "writing", "label": "Sentence Writing" },
+      { "id": "vocabulary", "label": "Spelling Words" }
+    ],
+    "lesson": [
+      {
+        "heading": "Short Vowel Sounds",
+        "body": "Short vowel sounds are quick sounds: a like in cat, e like in bed, i like in pig, o like in hop, u like in sun. Practice saying these words out loud: cat, bed, pig, hop, sun."
+      },
+      {
+        "heading": "Mini Reading Passage: The Lost Cap",
+        "body": "Sam had a red cap. The wind took his cap! Sam ran to get it. The cap was on a big rock. Sam was glad to get his cap back."
+      },
+      {
+        "heading": "Reading Check",
+        "body": "Talk about the story together: What color was Sam's cap? What happened to the cap? Where did Sam find it?"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "7 + 5 = ?" },
+      { "id": "ex2", "prompt": "9 + 6 = ?" },
+      { "id": "ex3", "prompt": "8 + 8 = ?" },
+      { "id": "ex4", "prompt": "4 + 9 = ?" },
+      { "id": "ex5", "prompt": "There are 6 red apples and 7 green apples in a basket. How many apples in all?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Write 1 to 2 sentences about your favorite hat, toy, or object. Remember to start with a capital letter and end with a period.",
+      "minWords": 6
+    },
+    "vocabulary": [
+      { "word": "cat", "definition": "A small furry pet that says meow." },
+      { "word": "bed", "definition": "A piece of furniture you sleep on." },
+      { "word": "hop", "definition": "To jump on one or both feet." },
+      { "word": "sun", "definition": "The bright star that lights up our sky in the day." },
+      { "word": "pig", "definition": "A farm animal that says oink." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "What color was Sam's cap?",
+        "options": ["Blue", "Red", "Green", "Yellow"],
+        "correctAnswer": "Red",
+        "explanation": "The story says Sam had a red cap."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What is 7 + 5?",
+        "options": ["11", "12", "13", "10"],
+        "correctAnswer": "12",
+        "explanation": "7 + 5 = 12."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "The word 'sun' has a short u sound.",
+        "correctAnswer": "True",
+        "explanation": "Sun has the short u sound, like in 'cup'."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "The wind took Sam's cap away in the story.",
+        "correctAnswer": "True",
+        "explanation": "The story says the wind took his cap."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "What is 9 + 6?",
+        "correctAnswer": "15",
+        "explanation": "9 + 6 = 15."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Read 'The Lost Cap' together out loud" },
+      { "id": "pc2", "label": "Checked the addition problems for accuracy" },
+      { "id": "pc3", "label": "Listened to the sentence about a favorite object" },
+      { "id": "pc4", "label": "Practiced spelling the 5 words together" }
+    ]
+  },
+  {
+    "id": "aveer-week1-day2",
+    "childId": "aveer",
+    "gradeLevel": 2,
+    "weekId": "week1",
+    "dayNumber": 2,
+    "title": "Adventure Continues: Long Vowel Lookout",
+    "theme": "Reading Ranger + Math Explorer",
+    "estimatedMinutes": 30,
+    "sections": [
+      { "id": "lesson", "label": "Reading" },
+      { "id": "exercises", "label": "Math" },
+      { "id": "writing", "label": "Sentence Repair" },
+      { "id": "vocabulary", "label": "Spelling Words" }
+    ],
+    "lesson": [
+      {
+        "heading": "Long Vowel Sounds",
+        "body": "Long vowel sounds say their own name: a like in cake, e like in bee, i like in bike, o like in boat, u like in cube. Practice saying these words out loud: cake, bee, bike, boat, cube."
+      },
+      {
+        "heading": "Mini Reading Passage: The Bike Ride",
+        "body": "Mia rode her bike down the lane. She saw a bee near a flower. Mia did not stop. She rode all the way to the lake and back home."
+      },
+      {
+        "heading": "Reading Check",
+        "body": "Talk about the story together: What did Mia ride? What did she see near a flower? Where did she ride to?"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "14 - 6 = ?" },
+      { "id": "ex2", "prompt": "18 - 9 = ?" },
+      { "id": "ex3", "prompt": "12 - 7 = ?" },
+      { "id": "ex4", "prompt": "20 - 11 = ?" },
+      { "id": "ex5", "prompt": "Mia had 15 stickers. She gave 6 to her friend. How many does she have left?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Fix these sentences so they start with a capital letter and end with the right punctuation: (1) i like to ride my bike (2) did you see the bee (3) the lake was so much fun",
+      "minWords": 10
+    },
+    "vocabulary": [
+      { "word": "cake", "definition": "A sweet baked dessert, often eaten on birthdays." },
+      { "word": "bee", "definition": "A flying insect that makes honey." },
+      { "word": "bike", "definition": "A two-wheeled vehicle you pedal to move." },
+      { "word": "boat", "definition": "A vehicle that travels on water." },
+      { "word": "cube", "definition": "A solid shape with six equal square sides." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "What did Mia ride in the story?",
+        "options": ["A boat", "A bike", "A bus", "A car"],
+        "correctAnswer": "A bike",
+        "explanation": "The story says Mia rode her bike down the lane."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What is 14 - 6?",
+        "options": ["6", "7", "8", "9"],
+        "correctAnswer": "8",
+        "explanation": "14 - 6 = 8."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "The word 'boat' has a long o sound.",
+        "correctAnswer": "True",
+        "explanation": "Boat has the long o sound, like the letter name 'o'."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Mia stopped riding when she saw the bee.",
+        "correctAnswer": "False",
+        "explanation": "The story says Mia did not stop."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "What is 18 - 9?",
+        "correctAnswer": "9",
+        "explanation": "18 - 9 = 9."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Read 'The Bike Ride' together out loud" },
+      { "id": "pc2", "label": "Checked the subtraction problems for accuracy" },
+      { "id": "pc3", "label": "Reviewed corrected sentences for capitals and punctuation" },
+      { "id": "pc4", "label": "Practiced spelling the 5 words together" }
+    ]
+  },
+  {
+    "id": "aveer-week1-day3",
+    "childId": "aveer",
+    "gradeLevel": 2,
+    "weekId": "week1",
+    "dayNumber": 3,
+    "title": "Adventure Continues: Tens and Ones Outpost",
+    "theme": "Reading Ranger + Math Explorer",
+    "estimatedMinutes": 30,
+    "sections": [
+      { "id": "lesson", "label": "Reading" },
+      { "id": "exercises", "label": "Math" },
+      { "id": "writing", "label": "Sentence Writing" },
+      { "id": "vocabulary", "label": "Spelling Words" }
+    ],
+    "lesson": [
+      {
+        "heading": "Place Value: Tens and Ones",
+        "body": "Every two-digit number has tens and ones. In the number 34, the 3 means 3 tens (30) and the 4 means 4 ones. 30 + 4 = 34. Practice breaking apart numbers into tens and ones."
+      },
+      {
+        "heading": "Mini Reading Passage: The Garden Helper",
+        "body": "Dev helped his grandma in the garden. They planted 2 rows of carrots. Each row had 10 carrot seeds. Dev counted all the seeds carefully."
+      },
+      {
+        "heading": "Reading Check",
+        "body": "Talk about the story together: Who did Dev help? What did they plant? How many rows of carrots were there?"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "How many tens and ones are in 47?" },
+      { "id": "ex2", "prompt": "How many tens and ones are in 62?" },
+      { "id": "ex3", "prompt": "Write the number that has 5 tens and 3 ones." },
+      { "id": "ex4", "prompt": "Write the number that has 8 tens and 0 ones." },
+      { "id": "ex5", "prompt": "Dev planted 2 rows of 10 carrot seeds. How many seeds in all?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Write 2 to 3 sentences about a time you helped someone, like Dev helped his grandma.",
+      "minWords": 12
+    },
+    "vocabulary": [
+      { "word": "garden", "definition": "A place where plants, flowers, or vegetables are grown." },
+      { "word": "seed", "definition": "A small part of a plant that can grow into a new plant." },
+      { "word": "row", "definition": "A straight line of things, like plants or seats." },
+      { "word": "count", "definition": "To find the total number of something." },
+      { "word": "carrot", "definition": "An orange vegetable that grows underground." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "How many tens are in the number 47?",
+        "options": ["4", "7", "47", "0"],
+        "correctAnswer": "4",
+        "explanation": "47 has 4 tens (40) and 7 ones."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "Who did Dev help in the garden?",
+        "options": ["His mom", "His teacher", "His grandma", "His friend"],
+        "correctAnswer": "His grandma",
+        "explanation": "The story says Dev helped his grandma in the garden."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "The number 62 has 6 tens and 2 ones.",
+        "correctAnswer": "True",
+        "explanation": "62 = 6 tens (60) + 2 ones."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Dev and his grandma planted only 1 row of carrots.",
+        "correctAnswer": "False",
+        "explanation": "The story says they planted 2 rows."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "How many seeds were planted in all (2 rows of 10)?",
+        "correctAnswer": "20",
+        "explanation": "2 rows of 10 seeds = 20 seeds total."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Read 'The Garden Helper' together out loud" },
+      { "id": "pc2", "label": "Practiced breaking numbers into tens and ones" },
+      { "id": "pc3", "label": "Listened to the 2-3 sentence writing about helping someone" },
+      { "id": "pc4", "label": "Practiced spelling the 5 words together" }
+    ]
+  },
+  {
+    "id": "aveer-week1-day4",
+    "childId": "aveer",
+    "gradeLevel": 2,
+    "weekId": "week1",
+    "dayNumber": 4,
+    "title": "Adventure Continues: Clock and Coin Camp",
+    "theme": "Reading Ranger + Math Explorer",
+    "estimatedMinutes": 30,
+    "sections": [
+      { "id": "lesson", "label": "Reading" },
+      { "id": "exercises", "label": "Math" },
+      { "id": "writing", "label": "Sentence Repair" },
+      { "id": "vocabulary", "label": "Spelling Words" }
+    ],
+    "lesson": [
+      {
+        "heading": "Time and Money Basics",
+        "body": "A clock has an hour hand (short) and a minute hand (long). When the minute hand points to 12, it is exactly on the hour, like 3:00. A penny is worth 1 cent, a nickel is worth 5 cents, a dime is worth 10 cents, and a quarter is worth 25 cents."
+      },
+      {
+        "heading": "Mini Reading Passage: Saving Up",
+        "body": "Lily wanted a new book. The book cost 50 cents. She saved 2 quarters in her piggy bank. Now Lily has enough money to buy the book!"
+      },
+      {
+        "heading": "Reading Check",
+        "body": "Talk about the story together: What did Lily want to buy? How much did it cost? How did she save enough money?"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "If the short hand points to 4 and the long hand points to 12, what time is it?" },
+      { "id": "ex2", "prompt": "How many cents is 1 quarter worth?" },
+      { "id": "ex3", "prompt": "How many cents are 2 dimes and 1 nickel worth together?" },
+      { "id": "ex4", "prompt": "Draw or describe a clock showing 7:00." },
+      { "id": "ex5", "prompt": "Lily saved 2 quarters. How many cents is that in all?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Fix these sentences: (1) lily saved her money (2) how much does it cost (3) i want to save money too",
+      "minWords": 10
+    },
+    "vocabulary": [
+      { "word": "clock", "definition": "A tool that tells us what time it is." },
+      { "word": "penny", "definition": "A coin worth 1 cent." },
+      { "word": "dime", "definition": "A coin worth 10 cents." },
+      { "word": "quarter", "definition": "A coin worth 25 cents." },
+      { "word": "save", "definition": "To keep something, like money, for later." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "How much is a quarter worth?",
+        "options": ["1 cent", "5 cents", "10 cents", "25 cents"],
+        "correctAnswer": "25 cents",
+        "explanation": "A quarter is worth 25 cents."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What did Lily want to buy?",
+        "options": ["A toy", "A book", "A snack", "A game"],
+        "correctAnswer": "A book",
+        "explanation": "The story says Lily wanted a new book."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "A dime is worth 10 cents.",
+        "correctAnswer": "True",
+        "explanation": "A dime is worth 10 cents."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "Lily did not have enough money to buy the book.",
+        "correctAnswer": "False",
+        "explanation": "The story says she saved enough to buy the book."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "How many cents are 2 quarters worth together?",
+        "correctAnswer": "50",
+        "explanation": "25 + 25 = 50 cents."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Read 'Saving Up' together out loud" },
+      { "id": "pc2", "label": "Practiced telling time and counting coins" },
+      { "id": "pc3", "label": "Reviewed corrected sentences for capitals and punctuation" },
+      { "id": "pc4", "label": "Practiced spelling the 5 words together" }
+    ]
+  },
+  {
+    "id": "aveer-week1-day5",
+    "childId": "aveer",
+    "gradeLevel": 2,
+    "weekId": "week1",
+    "dayNumber": 5,
+    "title": "Weekly Review Adventure",
+    "theme": "Reading Ranger + Math Explorer",
+    "estimatedMinutes": 35,
+    "sections": [
+      { "id": "lesson", "label": "Review Reading" },
+      { "id": "exercises", "label": "Mixed Review" },
+      { "id": "writing", "label": "Writing" },
+      { "id": "vocabulary", "label": "Spelling Roundup" }
+    ],
+    "lesson": [
+      {
+        "heading": "Review Briefing",
+        "body": "This week you practiced short and long vowels, addition and subtraction within 20, tens and ones, and time and money. Today's mission mixes a little bit of everything!"
+      },
+      {
+        "heading": "Mini Reading Passage: The Big Picnic",
+        "body": "Our class had a picnic. We sat in 2 rows. Each row had 10 kids. We ate at noon, when the clock showed 12:00. Everyone had a fun, sunny day."
+      },
+      {
+        "heading": "Reading Check",
+        "body": "Talk about the story together: How many rows were there? How many kids in each row? What time did they eat?"
+      }
+    ],
+    "exercises": [
+      { "id": "ex1", "prompt": "9 + 8 = ?" },
+      { "id": "ex2", "prompt": "16 - 7 = ?" },
+      { "id": "ex3", "prompt": "How many tens and ones are in 53?" },
+      { "id": "ex4", "prompt": "How many cents are 3 dimes worth?" },
+      { "id": "ex5", "prompt": "If 2 rows have 10 kids each, how many kids in all?" }
+    ],
+    "writingPrompt": {
+      "prompt": "Write 2 to 3 sentences about your favorite part of this week's learning.",
+      "minWords": 12
+    },
+    "vocabulary": [
+      { "word": "picnic", "definition": "A meal eaten outdoors, often on a blanket." },
+      { "word": "noon", "definition": "Twelve o'clock in the middle of the day." },
+      { "word": "row", "definition": "A straight line of things, like seats or plants (review)." },
+      { "word": "save", "definition": "To keep something for later (review)." }
+    ],
+    "quizQuestions": [
+      {
+        "id": "q1",
+        "type": "multiple-choice",
+        "question": "What is 9 + 8?",
+        "options": ["15", "16", "17", "18"],
+        "correctAnswer": "17",
+        "explanation": "9 + 8 = 17."
+      },
+      {
+        "id": "q2",
+        "type": "multiple-choice",
+        "question": "What time did the class eat at the picnic?",
+        "options": ["10:00", "11:00", "12:00", "1:00"],
+        "correctAnswer": "12:00",
+        "explanation": "The story says they ate at noon, when the clock showed 12:00."
+      },
+      {
+        "id": "q3",
+        "type": "true-false",
+        "question": "16 - 7 = 9.",
+        "correctAnswer": "True",
+        "explanation": "16 - 7 = 9."
+      },
+      {
+        "id": "q4",
+        "type": "true-false",
+        "question": "There were 3 rows of kids at the picnic.",
+        "correctAnswer": "False",
+        "explanation": "The story says there were 2 rows."
+      },
+      {
+        "id": "q5",
+        "type": "short-answer",
+        "question": "How many tens are in the number 53?",
+        "correctAnswer": "5",
+        "explanation": "53 has 5 tens (50) and 3 ones."
+      }
+    ],
+    "parentChecklist": [
+      { "id": "pc1", "label": "Read 'The Big Picnic' together out loud" },
+      { "id": "pc2", "label": "Checked the mixed review exercises for accuracy" },
+      { "id": "pc3", "label": "Listened to the reflection writing" },
+      { "id": "pc4", "label": "Celebrated finishing Week 1!" }
+    ]
+  }
+]

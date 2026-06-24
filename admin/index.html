@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Daily Mission Academy — Content Control Panel</title>
+<style>
+  :root {
+    --bg: #f4f5f8;
+    --surface: #ffffff;
+    --ink: #1c2233;
+    --ink-soft: #5b6275;
+    --line: #dde1ea;
+    --accent: #3b5bdb;
+    --accent-soft: #ebefff;
+    --success: #2f8f5b;
+    --success-bg: #e6f4ec;
+    --danger: #c23b3b;
+    --danger-bg: #fbeaea;
+    --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    line-height: 1.45;
+  }
+  header {
+    background: var(--ink);
+    color: #fff;
+    padding: 18px 24px;
+  }
+  header h1 { margin: 0; font-size: 18px; }
+  header p { margin: 4px 0 0; color: #aab1c4; font-size: 13px; }
+  main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 24px 20px 100px;
+  }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 18px;
+  }
+  .panel.hidden { display: none; }
+  .panel h2 { margin: 0 0 14px; font-size: 16px; }
+  .panel h3 { margin: 0 0 8px; font-size: 14px; color: var(--ink-soft); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .pill-btn {
+    border: 2px solid var(--line);
+    background: #fff;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .pill-btn.active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  select, input[type=text], input[type=number], input[type=date], textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 9px 11px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #fff;
+  }
+  textarea { resize: vertical; }
+  label { display: block; font-size: 12px; color: var(--ink-soft); margin-bottom: 4px; font-weight: 600; }
+  .field { margin-bottom: 12px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+    border-radius: 9px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-secondary { background: #fff; border: 1px solid var(--line); color: var(--ink); }
+  .btn-danger { background: var(--danger-bg); color: var(--danger); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; }
+  .day-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+  .day-card__meta { font-size: 13px; color: var(--ink-soft); }
+  .subform {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    background: #fafbfd;
+  }
+  .subform-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .subform-row > div { flex: 1; }
+  .remove-x {
+    border: none;
+    background: var(--danger-bg);
+    color: var(--danger);
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+  .add-link {
+    border: none;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .section-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-toggle:last-child { border-bottom: none; }
+  .section-toggle input[type=checkbox] { width: 18px; height: 18px; }
+  .section-toggle input[type=text] { flex: 1; }
+  #publish-panel {
+    position: sticky;
+    bottom: 0;
+    background: var(--surface);
+    border-top: 2px solid var(--line);
+    box-shadow: 0 -8px 20px -10px rgba(0,0,0,0.15);
+  }
+  #log {
+    background: #11141c;
+    color: #cfd5e6;
+    font-family: var(--mono);
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 12px 14px;
+    max-height: 180px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    margin-top: 10px;
+  }
+  .status { font-size: 13px; font-weight: 700; }
+  .status.ok { color: var(--success); }
+  .status.err { color: var(--danger); }
+  .small-note { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Daily Mission Academy — Content Control Panel</h1>
+  <p>Runs only on your computer. Saves write straight into your project's content files.</p>
+</header>
+
+<main>
+
+  <div class="panel" id="panel-child">
+    <h2>1. Who is this for?</h2>
+    <div class="row" id="child-buttons"></div>
+  </div>
+
+  <div class="panel hidden" id="panel-week">
+    <h2>2. Which week?</h2>
+    <div class="field">
+      <label for="week-select">Existing week file</label>
+      <select id="week-select"></select>
+    </div>
+    <div class="row">
+      <button class="btn btn-secondary btn-sm" id="btn-new-week">+ Create a new week file</button>
+    </div>
+    <div class="field hidden" id="new-week-field" style="margin-top:12px;">
+      <label for="new-week-name">New file name (e.g. week2)</label>
+      <input type="text" id="new-week-name" placeholder="week2" />
+      <div class="small-note">Saved as <code>public/content/&lt;child&gt;/<span id="new-week-preview">week2</span>.json</code> and added to manifest.json automatically.</div>
+    </div>
+  </div>
+
+  <div class="panel hidden" id="panel-days">
+    <h2>3. Days in this week</h2>
+    <div id="days-list"></div>
+    <button class="btn btn-primary" id="btn-add-day" style="margin-top:10px;">+ Add New Day</button>
+  </div>
+
+  <div class="panel hidden" id="panel-editor">
+    <h2 id="editor-title">Edit Day</h2>
+
+    <div class="grid2">
+      <div class="field">
+        <label>Day Number</label>
+        <input type="number" id="f-dayNumber" min="1" />
+      </div>
+      <div class="field">
+        <label>Estimated Minutes</label>
+        <input type="number" id="f-estimatedMinutes" min="5" value="40" />
+      </div>
+    </div>
+    <div class="field">
+      <label>Title</label>
+      <input type="text" id="f-title" placeholder="Mission Briefing: ..." />
+    </div>
+    <div class="field">
+      <label>Theme (optional)</label>
+      <input type="text" id="f-theme" placeholder="Data Detective + Force Explorer" />
+    </div>
+    <div class="field">
+      <label>Assignment ID (auto-generated, editable)</label>
+      <input type="text" id="f-id" />
+    </div>
+
+    <h3>Sections included today</h3>
+    <div class="subform" id="sections-block"></div>
+
+    <h3>Lesson Blocks</h3>
+    <div id="lesson-list"></div>
+    <button class="add-link" id="btn-add-lesson">+ Add lesson block</button>
+
+    <h3 style="margin-top:18px;">Exercises</h3>
+    <div id="exercises-list"></div>
+    <button class="add-link" id="btn-add-exercise">+ Add exercise</button>
+
+    <h3 style="margin-top:18px;">Writing Prompt</h3>
+    <div class="field">
+      <label>Prompt</label>
+      <textarea id="f-writingPrompt" rows="2"></textarea>
+    </div>
+    <div class="field" style="max-width:200px;">
+      <label>Minimum words (optional)</label>
+      <input type="number" id="f-minWords" min="0" />
+    </div>
+
+    <h3 style="margin-top:18px;">Science / Social Studies (optional)</h3>
+    <div class="field">
+      <label>Heading</label>
+      <input type="text" id="f-enrich-heading" />
+    </div>
+    <div class="field">
+      <label>Body</label>
+      <textarea id="f-enrich-body" rows="3"></textarea>
+    </div>
+    <div class="field">
+      <label>Hands-on activity (optional)</label>
+      <textarea id="f-enrich-activity" rows="2"></textarea>
+    </div>
+
+    <h3 style="margin-top:18px;">Vocabulary</h3>
+    <div id="vocab-list"></div>
+    <button class="add-link" id="btn-add-vocab">+ Add word</button>
+
+    <h3 style="margin-top:18px;">Quiz Questions</h3>
+    <div id="quiz-list"></div>
+    <button class="add-link" id="btn-add-quiz">+ Add question</button>
+
+    <h3 style="margin-top:18px;">Parent Checklist</h3>
+    <div id="checklist-list"></div>
+    <button class="add-link" id="btn-add-checklist">+ Add checklist item</button>
+
+    <div class="row" style="margin-top:20px;">
+      <button class="btn btn-primary" id="btn-save-day">💾 Save Day</button>
+      <button class="btn btn-secondary" id="btn-cancel-edit">Cancel</button>
+    </div>
+  </div>
+
+</main>
+
+<div class="panel" id="publish-panel">
+  <div class="row" style="justify-content: space-between;">
+    <div class="row">
+      <label style="margin:0;"><input type="checkbox" id="auto-publish" checked /> Auto-publish after save</label>
+    </div>
+    <div class="row">
+      <input type="text" id="commit-message" placeholder="Commit message" style="width:320px;" />
+      <button class="btn btn-primary" id="btn-publish-now">🚀 Publish Now</button>
+    </div>
+  </div>
+  <div id="status-line" class="status"></div>
+  <div id="log"></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const SECTION_DEFS = [
+    { key: 'lesson', defaultLabel: 'Lesson' },
+    { key: 'exercises', defaultLabel: 'Exercises' },
+    { key: 'writing', defaultLabel: 'Writing Mission' },
+    { key: 'enrichment', defaultLabel: 'Science / Social Studies' },
+    { key: 'vocabulary', defaultLabel: 'Vocabulary' },
+  ];
+
+  const KIDS = {
+    iraj: { id: 'iraj', name: 'Iraj', gradeLevel: 5, icon: '🚀' },
+    aveer: { id: 'aveer', name: 'Aveer', gradeLevel: 2, icon: '🧭' },
+  };
+
+  let manifest = null;
+  let currentChild = null;
+  let currentFile = null;
+  let currentDays = [];
+  let draft = null; // the assignment object currently being edited
+  let isNewDay = false;
+
+  // ---- tiny DOM helpers ----
+  const $ = (id) => document.getElementById(id);
+  function el(tag, attrs, children) {
+    const node = document.createElement(tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => {
+      if (k === 'class') node.className = v;
+      else if (k.startsWith('on')) node.addEventListener(k.slice(2), v);
+      else node.setAttribute(k, v);
+    });
+    (children || []).forEach((c) => node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c));
+    return node;
+  }
+
+  function logLine(text) {
+    const box = $('log');
+    box.textContent += (box.textContent ? '\n' : '') + text;
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function setStatus(message, kind) {
+    const node = $('status-line');
+    node.textContent = message;
+    node.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  // ---- API ----
+  async function api(path, options) {
+    const res = await fetch(path, options);
+    const body = await res.json();
+    if (!res.ok || body.ok === false) {
+      throw new Error(body.error || 'Request failed');
+    }
+    return body;
+  }
+
+  // ---- Step 1: child ----
+  function renderChildButtons() {
+    const wrap = $('child-buttons');
+    wrap.innerHTML = '';
+    Object.values(KIDS).forEach((kid) => {
+      const btn = el(
+        'button',
+        {
+          class: 'pill-btn' + (currentChild === kid.id ? ' active' : ''),
+          onclick: () => selectChild(kid.id),
+        },
+        [`${kid.icon} ${kid.name}`]
+      );
+      wrap.appendChild(btn);
+    });
+  }
+
+  function selectChild(childId) {
+    currentChild = childId;
+    currentFile = null;
+    currentDays = [];
+    renderChildButtons();
+    $('panel-week').classList.remove('hidden');
+    $('panel-days').classList.add('hidden');
+    $('panel-editor').classList.add('hidden');
+    populateWeekSelect();
+  }
+
+  // ---- Step 2: week ----
+  function populateWeekSelect() {
+    const entry = (manifest.children || {})[currentChild] || { files: [], currentWeek: '' };
+    const select = $('week-select');
+    select.innerHTML = '';
+    entry.files.forEach((file) => {
+      const opt = el('option', { value: file }, [file + (file.replace(/\.json$/, '') === entry.currentWeek ? '  (current)' : '')]);
+      select.appendChild(opt);
+    });
+    if (entry.files.length > 0) {
+      select.value = entry.files[entry.files.length - 1];
+      selectWeekFile(select.value);
+    }
+  }
+
+  $('week-select').addEventListener('change', (e) => selectWeekFile(e.target.value));
+
+  $('btn-new-week').addEventListener('click', () => {
+    $('new-week-field').classList.remove('hidden');
+  });
+
+  $('new-week-name').addEventListener('input', (e) => {
+    const clean = e.target.value.trim().replace(/\.json$/, '');
+    $('new-week-preview').textContent = clean || 'week2';
+  });
+
+  $('new-week-name').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      confirmNewWeek();
+    }
+  });
+
+  function confirmNewWeek() {
+    const raw = $('new-week-name').value.trim().replace(/\.json$/, '');
+    if (!raw) return;
+    const file = raw + '.json';
+    currentFile = file;
+    currentDays = [];
+    $('new-week-field').classList.add('hidden');
+    $('new-week-name').value = '';
+    renderDaysList();
+    $('panel-days').classList.remove('hidden');
+    setStatus(`New week "${file}" ready — add your first day below, then Save.`, 'ok');
+  }
+
+  // give the "create new week" flow a visible confirm button too
+  $('new-week-field').appendChild(
+    el('button', { class: 'btn btn-secondary btn-sm', style: 'margin-top:8px;', onclick: confirmNewWeek }, ['Use this week file'])
+  );
+
+  async function selectWeekFile(file) {
+    if (!file) return;
+    currentFile = file;
+    const data = await api(`/api/content?child=${currentChild}&file=${encodeURIComponent(file)}`);
+    currentDays = data.days || [];
+    renderDaysList();
+    $('panel-days').classList.remove('hidden');
+    $('panel-editor').classList.add('hidden');
+  }
+
+  // ---- Step 3: days list ----
+  function renderDaysList() {
+    const wrap = $('days-list');
+    wrap.innerHTML = '';
+    if (currentDays.length === 0) {
+      wrap.appendChild(el('p', { class: 'small-note' }, ['No days yet in this file.']));
+    }
+    currentDays
+      .slice()
+      .sort((a, b) => a.dayNumber - b.dayNumber)
+      .forEach((day) => {
+        const card = el('div', { class: 'day-card' }, [
+          el('div', {}, [
+            el('strong', {}, [`Day ${day.dayNumber}: ${day.title}`]),
+            el('div', { class: 'day-card__meta' }, [`${day.estimatedMinutes} min · ${day.quizQuestions.length} quiz questions`]),
+          ]),
+          el('button', { class: 'btn btn-secondary btn-sm', onclick: () => openEditor(day) }, ['Edit']),
+        ]);
+        wrap.appendChild(card);
+      });
+  }
+
+  $('btn-add-day').addEventListener('click', () => openEditor(null));
+
+  // ---- Step 4: editor ----
+  function blankDraft() {
+    const nextDayNumber = currentDays.length > 0 ? Math.max(...currentDays.map((d) => d.dayNumber)) + 1 : 1;
+    const weekId = currentFile.replace(/\.json$/, '');
+    return {
+      id: `${currentChild}-${weekId}-day${nextDayNumber}`,
+      childId: currentChild,
+      gradeLevel: KIDS[currentChild].gradeLevel,
+      weekId,
+      dayNumber: nextDayNumber,
+      title: '',
+      theme: '',
+      estimatedMinutes: 40,
+      lesson: [],
+      exercises: [],
+      writingPrompt: { prompt: '', minWords: undefined },
+      scienceOrSocialStudies: { heading: '', body: '', activity: '' },
+      vocabulary: [],
+      quizQuestions: [],
+      parentChecklist: [],
+      _sectionsMeta: SECTION_DEFS.reduce((acc, s) => {
+        acc[s.key] = { include: s.key !== 'enrichment', label: s.defaultLabel };
+        return acc;
+      }, {}),
+    };
+  }
+
+  function draftFromExisting(day) {
+    const includedKeys = new Set((day.sections || []).map((s) => s.id));
+    const sectionsMeta = SECTION_DEFS.reduce((acc, s) => {
+      const existing = (day.sections || []).find((sec) => sec.id === s.key);
+      acc[s.key] = { include: includedKeys.has(s.key), label: existing ? existing.label : s.defaultLabel };
+      return acc;
+    }, {});
+    return Object.assign({}, day, {
+      theme: day.theme || '',
+      writingPrompt: day.writingPrompt || { prompt: '', minWords: undefined },
+      scienceOrSocialStudies: day.scienceOrSocialStudies || { heading: '', body: '', activity: '' },
+      lesson: (day.lesson || []).map((b) => Object.assign({}, b)),
+      exercises: (day.exercises || []).map((e) => Object.assign({}, e)),
+      vocabulary: (day.vocabulary || []).map((v) => Object.assign({}, v)),
+      quizQuestions: (day.quizQuestions || []).map((q) => Object.assign({}, q, { options: (q.options || []).slice() })),
+      parentChecklist: (day.parentChecklist || []).map((c) => Object.assign({}, c)),
+      _sectionsMeta: sectionsMeta,
+    });
+  }
+
+  function openEditor(existingDay) {
+    isNewDay = !existingDay;
+    draft = existingDay ? draftFromExisting(existingDay) : blankDraft();
+    $('editor-title').textContent = isNewDay ? 'Add New Day' : `Edit Day ${draft.dayNumber}`;
+    fillEditorFields();
+    $('panel-editor').classList.remove('hidden');
+    $('panel-editor').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  $('btn-cancel-edit').addEventListener('click', () => {
+    $('panel-editor').classList.add('hidden');
+  });
+
+  function fillEditorFields() {
+    $('f-dayNumber').value = draft.dayNumber;
+    $('f-estimatedMinutes').value = draft.estimatedMinutes;
+    $('f-title').value = draft.title;
+    $('f-theme').value = draft.theme || '';
+    $('f-id').value = draft.id;
+    $('f-writingPrompt').value = draft.writingPrompt.prompt || '';
+    $('f-minWords').value = draft.writingPrompt.minWords || '';
+    $('f-enrich-heading').value = draft.scienceOrSocialStudies.heading || '';
+    $('f-enrich-body').value = draft.scienceOrSocialStudies.body || '';
+    $('f-enrich-activity').value = draft.scienceOrSocialStudies.activity || '';
+
+    renderSectionsBlock();
+    renderLessonList();
+    renderExercisesList();
+    renderVocabList();
+    renderQuizList();
+    renderChecklistList();
+  }
+
+  // keep id in sync with day number if the user hasn't customized it manually
+  $('f-dayNumber').addEventListener('change', (e) => {
+    draft.dayNumber = Number(e.target.value) || 1;
+  });
+  $('f-estimatedMinutes').addEventListener('change', (e) => { draft.estimatedMinutes = Number(e.target.value) || 0; });
+  $('f-title').addEventListener('input', (e) => { draft.title = e.target.value; });
+  $('f-theme').addEventListener('input', (e) => { draft.theme = e.target.value; });
+  $('f-id').addEventListener('input', (e) => { draft.id = e.target.value; });
+  $('f-writingPrompt').addEventListener('input', (e) => { draft.writingPrompt.prompt = e.target.value; });
+  $('f-minWords').addEventListener('input', (e) => { draft.writingPrompt.minWords = e.target.value ? Number(e.target.value) : undefined; });
+  $('f-enrich-heading').addEventListener('input', (e) => { draft.scienceOrSocialStudies.heading = e.target.value; });
+  $('f-enrich-body').addEventListener('input', (e) => { draft.scienceOrSocialStudies.body = e.target.value; });
+  $('f-enrich-activity').addEventListener('input', (e) => { draft.scienceOrSocialStudies.activity = e.target.value; });
+
+  // ---- sections toggles ----
+  function renderSectionsBlock() {
+    const wrap = $('sections-block');
+    wrap.innerHTML = '';
+    SECTION_DEFS.forEach((def) => {
+      const meta = draft._sectionsMeta[def.key];
+      const row = el('div', { class: 'section-toggle' }, [
+        el('input', {
+          type: 'checkbox',
+          ...(meta.include ? { checked: 'checked' } : {}),
+          onchange: (e) => { meta.include = e.target.checked; },
+        }),
+        el('input', {
+          type: 'text',
+          value: meta.label,
+          oninput: (e) => { meta.label = e.target.value; },
+        }),
+      ]);
+      wrap.appendChild(row);
+    });
+  }
+
+  // ---- Lesson blocks ----
+  function renderLessonList() {
+    const wrap = $('lesson-list');
+    wrap.innerHTML = '';
+    draft.lesson.forEach((block, idx) => {
+      const headingInput = el('input', { type: 'text', value: block.heading, placeholder: 'Heading', oninput: (e) => { block.heading = e.target.value; } });
+      const bodyInput = el('textarea', { rows: '3', placeholder: 'Explanation text...', oninput: (e) => { block.body = e.target.value; } }, [block.body || '']);
+      const fields = el('div', {}, [
+        el('div', { class: 'field' }, [el('label', {}, ['Heading']), headingInput]),
+        el('div', { class: 'field' }, [el('label', {}, ['Body']), bodyInput]),
+      ]);
+      const removeBtn = el('button', { class: 'remove-x', onclick: () => { draft.lesson.splice(idx, 1); renderLessonList(); } }, ['✕']);
+      wrap.appendChild(el('div', { class: 'subform-row' }, [fields, removeBtn]));
+    });
+  }
+  $('btn-add-lesson').addEventListener('click', () => { draft.lesson.push({ heading: '', body: '' }); renderLessonList(); });
+
+  // ---- Exercises ----
+  function renderExercisesList() {
+    const wrap = $('exercises-list');
+    wrap.innerHTML = '';
+    draft.exercises.forEach((ex, idx) => {
+      const input = el('input', { type: 'text', value: ex.prompt, placeholder: 'Exercise prompt', oninput: (e) => { ex.prompt = e.target.value; } });
+      const removeBtn = el('button', { class: 'remove-x', onclick: () => { draft.exercises.splice(idx, 1); renderExercisesList(); } }, ['✕']);
+      wrap.appendChild(el('div', { class: 'subform-row' }, [el('div', { class: 'field' }, [input]), removeBtn]));
+    });
+  }
+  $('btn-add-exercise').addEventListener('click', () => { draft.exercises.push({ prompt: '' }); renderExercisesList(); });
+
+  // ---- Vocabulary ----
+  function renderVocabList() {
+    const wrap = $('vocab-list');
+    wrap.innerHTML = '';
+    draft.vocabulary.forEach((v, idx) => {
+      const wordInput = el('input', { type: 'text', value: v.word, placeholder: 'word', oninput: (e) => { v.word = e.target.value; } });
+      const defInput = el('input', { type: 'text', value: v.definition, placeholder: 'definition', oninput: (e) => { v.definition = e.target.value; } });
+      const fields = el('div', { class: 'grid2' }, [
+        el('div', { class: 'field' }, [el('label', {}, ['Word']), wordInput]),
+        el('div', { class: 'field' }, [el('label', {}, ['Definition']), defInput]),
+      ]);
+      const removeBtn = el('button', { class: 'remove-x', onclick: () => { draft.vocabulary.splice(idx, 1); renderVocabList(); } }, ['✕']);
+      wrap.appendChild(el('div', { class: 'subform-row' }, [fields, removeBtn]));
+    });
+  }
+  $('btn-add-vocab').addEventListener('click', () => { draft.vocabulary.push({ word: '', definition: '' }); renderVocabList(); });
+
+  // ---- Quiz questions ----
+  function renderQuizList() {
+    const wrap = $('quiz-list');
+    wrap.innerHTML = '';
+    draft.quizQuestions.forEach((q, idx) => {
+      if (!q.type) q.type = 'multiple-choice';
+
+      const typeSelect = el('select', {
+        onchange: (e) => { q.type = e.target.value; renderQuizList(); },
+      }, ['multiple-choice', 'true-false', 'short-answer'].map((t) =>
+        el('option', Object.assign({ value: t }, q.type === t ? { selected: 'selected' } : {}), [t])
+      ));
+
+      const questionInput = el('textarea', { rows: '2', placeholder: 'Question text', oninput: (e) => { q.question = e.target.value; } }, [q.question || '']);
+
+      const fieldsChildren = [
+        el('div', { class: 'field' }, [el('label', {}, ['Type']), typeSelect]),
+        el('div', { class: 'field' }, [el('label', {}, ['Question']), questionInput]),
+      ];
+
+      if (q.type === 'multiple-choice') {
+        const optionsTextarea = el('textarea', {
+          rows: '3',
+          placeholder: 'One option per line',
+          oninput: (e) => { q.options = e.target.value.split('\n').map((s) => s.trim()).filter(Boolean); },
+        }, [(q.options || []).join('\n')]);
+        const correctInput = el('input', { type: 'text', value: q.correctAnswer || '', placeholder: 'Must match one option exactly', oninput: (e) => { q.correctAnswer = e.target.value; } });
+        fieldsChildren.push(
+          el('div', { class: 'field' }, [el('label', {}, ['Options (one per line)']), optionsTextarea]),
+          el('div', { class: 'field' }, [el('label', {}, ['Correct Answer']), correctInput])
+        );
+      } else if (q.type === 'true-false') {
+        const correctSelect = el('select', { onchange: (e) => { q.correctAnswer = e.target.value; } }, ['True', 'False'].map((t) =>
+          el('option', Object.assign({ value: t }, q.correctAnswer === t ? { selected: 'selected' } : {}), [t])
+        ));
+        if (!q.correctAnswer) q.correctAnswer = 'True';
+        q.options = undefined;
+        fieldsChildren.push(el('div', { class: 'field' }, [el('label', {}, ['Correct Answer']), correctSelect]));
+      } else {
+        const correctInput = el('input', { type: 'text', value: q.correctAnswer || '', placeholder: 'Expected answer', oninput: (e) => { q.correctAnswer = e.target.value; } });
+        q.options = undefined;
+        fieldsChildren.push(el('div', { class: 'field' }, [el('label', {}, ['Correct Answer']), correctInput]));
+      }
+
+      const explanationInput = el('input', { type: 'text', value: q.explanation || '', placeholder: 'Explanation shown in the answer key (optional)', oninput: (e) => { q.explanation = e.target.value; } });
+      fieldsChildren.push(el('div', { class: 'field' }, [el('label', {}, ['Explanation (optional)']), explanationInput]));
+
+      const fields = el('div', {}, fieldsChildren);
+      const removeBtn = el('button', { class: 'remove-x', onclick: () => { draft.quizQuestions.splice(idx, 1); renderQuizList(); } }, ['✕']);
+      wrap.appendChild(el('div', { class: 'subform-row' }, [fields, removeBtn]));
+    });
+  }
+  $('btn-add-quiz').addEventListener('click', () => {
+    draft.quizQuestions.push({ type: 'multiple-choice', question: '', options: [], correctAnswer: '', explanation: '' });
+    renderQuizList();
+  });
+
+  // ---- Parent checklist ----
+  function renderChecklistList() {
+    const wrap = $('checklist-list');
+    wrap.innerHTML = '';
+    draft.parentChecklist.forEach((item, idx) => {
+      const input = el('input', { type: 'text', value: item.label, placeholder: 'e.g. Checked exercises for accuracy', oninput: (e) => { item.label = e.target.value; } });
+      const removeBtn = el('button', { class: 'remove-x', onclick: () => { draft.parentChecklist.splice(idx, 1); renderChecklistList(); } }, ['✕']);
+      wrap.appendChild(el('div', { class: 'subform-row' }, [el('div', { class: 'field' }, [input]), removeBtn]));
+    });
+  }
+  $('btn-add-checklist').addEventListener('click', () => { draft.parentChecklist.push({ label: '' }); renderChecklistList(); });
+
+  // ---- build final assignment object & save ----
+  function buildAssignmentPayload() {
+    const sections = SECTION_DEFS.filter((def) => draft._sectionsMeta[def.key].include).map((def) => ({
+      id: def.key,
+      label: draft._sectionsMeta[def.key].label || def.defaultLabel,
+    }));
+
+    const exercises = draft.exercises.map((e, i) => ({ id: `ex${i + 1}`, prompt: e.prompt }));
+    const quizQuestions = draft.quizQuestions.map((q, i) => {
+      const base = { id: `q${i + 1}`, type: q.type, question: q.question, correctAnswer: q.correctAnswer };
+      if (q.type === 'multiple-choice') base.options = q.options || [];
+      if (q.explanation) base.explanation = q.explanation;
+      return base;
+    });
+    const parentChecklist = draft.parentChecklist.map((c, i) => ({ id: `pc${i + 1}`, label: c.label }));
+
+    const includeEnrichment = draft._sectionsMeta.enrichment.include;
+
+    const payload = {
+      id: draft.id,
+      childId: draft.childId,
+      gradeLevel: draft.gradeLevel,
+      weekId: draft.weekId,
+      dayNumber: Number(draft.dayNumber),
+      title: draft.title,
+      estimatedMinutes: Number(draft.estimatedMinutes),
+      sections,
+      lesson: draft.lesson,
+      exercises,
+      writingPrompt: draft.writingPrompt,
+      vocabulary: draft.vocabulary,
+      quizQuestions,
+      parentChecklist,
+    };
+    if (draft.theme) payload.theme = draft.theme;
+    if (includeEnrichment) payload.scienceOrSocialStudies = draft.scienceOrSocialStudies;
+
+    return payload;
+  }
+
+  function validateDraft(payload) {
+    const problems = [];
+    if (!payload.title.trim()) problems.push('Title is required.');
+    if (!payload.id.trim()) problems.push('Assignment ID is required.');
+    if (!payload.dayNumber || payload.dayNumber < 1) problems.push('Day number must be 1 or higher.');
+    payload.quizQuestions.forEach((q, i) => {
+      if (!q.question || !q.question.trim()) problems.push(`Quiz question ${i + 1} is missing question text.`);
+      if (!q.correctAnswer || !q.correctAnswer.trim()) problems.push(`Quiz question ${i + 1} is missing a correct answer.`);
+      if (q.type === 'multiple-choice') {
+        if (!q.options || q.options.length < 2) problems.push(`Quiz question ${i + 1} needs at least 2 options.`);
+        else if (!q.options.includes(q.correctAnswer)) problems.push(`Quiz question ${i + 1}: correct answer must exactly match one of the options.`);
+      }
+    });
+    return problems;
+  }
+
+  $('btn-save-day').addEventListener('click', async () => {
+    const payload = buildAssignmentPayload();
+    const problems = validateDraft(payload);
+    if (problems.length > 0) {
+      setStatus('Fix these before saving: ' + problems.join(' '), 'err');
+      return;
+    }
+
+    try {
+      setStatus('Saving...', '');
+      const result = await api('/api/save-day', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          child: currentChild,
+          file: currentFile,
+          assignment: payload,
+          setAsCurrentWeek: true,
+        }),
+      });
+      manifest = result.manifest;
+      currentDays = result.days;
+      renderDaysList();
+      $('panel-editor').classList.add('hidden');
+      setStatus(`Saved Day ${payload.dayNumber} to ${currentFile}.`, 'ok');
+      $('commit-message').value = `Update ${KIDS[currentChild].name} Day ${payload.dayNumber}: ${payload.title}`;
+
+      if ($('auto-publish').checked) {
+        await publish();
+      }
+    } catch (err) {
+      setStatus('Save failed: ' + err.message, 'err');
+    }
+  });
+
+  // ---- publish ----
+  async function publish() {
+    const message = $('commit-message').value.trim() || 'Update content via Control Panel';
+    setStatus('Publishing — this can take a minute (build + deploy)...', '');
+    logLine('--- publish started: ' + new Date().toLocaleTimeString() + ' ---');
+    try {
+      const result = await api('/api/publish', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message }),
+      });
+      logLine(result.log);
+      setStatus('Published! Give GitHub Pages a minute, then refresh your live site.', 'ok');
+    } catch (err) {
+      logLine(err.message);
+      setStatus('Publish failed — see log below.', 'err');
+    }
+  }
+
+  $('btn-publish-now').addEventListener('click', publish);
+
+  // ---- boot ----
+  async function init() {
+    try {
+      manifest = await api('/api/manifest');
+      renderChildButtons();
+      $('commit-message').value = 'Update content via Control Panel';
+    } catch (err) {
+      setStatus('Could not load manifest.json: ' + err.message, 'err');
+    }
+  }
+
+  init();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "version": "2026-06-23",
+  "children": {
+    "iraj": {
+      "currentWeek": "week1",
+      "files": ["week1.json"]
+    },
+    "aveer": {
+      "currentWeek": "week1",
+      "files": ["week1.json"]
+    }
+  }
+}
